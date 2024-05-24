@@ -11,12 +11,12 @@ require 'rdoc/task'
 require 'rake/testtask'
 require 'rubygems/package_task'
 
-GEM_NAME = 'augeas'
-GEM_VERSION = '0.6.4'
+GEM_NAME = 'opennebula-augeas'
+GEM_VERSION = '0.6.6.pre'
 EXT_CONF = 'ext/augeas/extconf.rb'
 MAKEFILE = 'ext/augeas/Makefile'
 AUGEAS_MODULE = 'ext/augeas/_augeas.so'
-SPEC_FILE = 'augeas.spec'
+SPEC_FILE = 'opennebula-augeas.spec'
 AUGEAS_SRC = AUGEAS_MODULE.gsub(/\.so$/, '.c')
 
 # Clean - remove all intermediate files / temporary files, do not touch final product.
@@ -71,12 +71,13 @@ PKG_FILES = FileList[
 SPEC = Gem::Specification.new do |s|
 	s.name = GEM_NAME
 	s.version = GEM_VERSION
-	s.email = "dot.doom@gmail.com"
-	s.homepage = "https://github.com/dotdoom/augeas"
+	s.email = "info@opennebula.io"
+	s.homepage = "https://opennebula.io/"
 	s.summary = "Ruby bindings for augeas"
 	s.authors = File.read('AUTHORS').lines.grep(/^  /).map { |a| a[/[^<]+/].strip }.uniq
 	s.files = PKG_FILES
-  s.licenses = ['LGPL-2.1+']
+	s.metadata = { "source_code_uri" => "https://github.com/OpenNebula/ruby-augeas" }
+	s.licenses = ['LGPL-2.1+']
 	s.required_ruby_version = '>= 1.8.7'
 	s.extensions = "ext/augeas/extconf.rb"
 	s.description = "A fork of ruby-augeas (bindings for augeas) with exceptions support."

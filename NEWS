@@ -1,4 +1,9 @@
+0.6.5 - 2024-05-24
+  - remove deprecated Fixnum
+  - fork as opennebula-augeas
+
 0.6.4 - 2015-04-09
+  - use pkg-config to lookup libxml2 header location
   - use pkg-config to lookup libxml2 header location
 
 0.6.3 - 2014-02-20
